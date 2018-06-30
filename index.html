@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Currency Converter App</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+<header>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div id="logo">
+					<h2>Currency Converter</h2>
+				</div>
+			</div>
+			<div class="col-md-6">
+			</div>
+		</div>
+	</div>
+</header>
+    <div class="container">
+
+        <div class="row">
+            <div id="title" >
+                <h1 class="text-center">The Free Currency Converter</h1>
+            </div>
+         </div>
+    </div>
+
+    <div class="container">
+    <div class="row">
+            <div id="body-form">
+                <form>
+                    <div class="form-row">
+                            <div class="form-group col-md-2">
+                                    <label for="inputMount">Mount</label>
+                                    <input type="text" class="form-control" onchange="myFunction()" placeholder="0.0" id="inputMount">
+                                </div>
+                    <div class="form-group col-md-5">
+                        <label for="inputFrom">From</label>
+                        <select id="inputFrom" onchange="myFunction()" class="form-control"></select>                      
+                    </div>
+                    <div id="select" class="form-group col-md-5">
+                        <label for="inputTo">To</label>
+                        <select id="inputTo" onchange="myFunction()" class="form-control"></select>
+                        </select>
+                    </div>
+
+                    </div>
+                    <button type="submit" class="btn btn-dark btn-lg btn-block">reset</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+
+            <div id="result" class="text-center">
+                <span>Mount = </span>
+                <h3 id="resultMount">0.0</h3>
+            </div>
+    </div>
+    </div>   
+<script>
+
+</script>
+</body>
+</html>
