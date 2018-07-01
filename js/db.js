@@ -1,20 +1,38 @@
+var dbPromise = idb.open('currencies-convert-db', 3, function(upgradeDb) {
+  switch(upgradeDb.oldVersion) {
+    case 0:
+      var keyValStore = upgradeDb.createObjectStore('currencies');
 
-let arr; 
-var dbPromise = idb.open('currencies-convert-db', 1, function(upgradeDb) {
+    case 1:
+      var keyValStore = upgradeDb.transaction.objectStore('currencies');
+      keyValStore.createIndex('currencie', 'currencie');
+  }
+});
 
-        var keyValStore = upgradeDb.createObjectStore('keyval');
-        keyValStore.put("world", "hello");
 
 
-  });
-  
-  // read "hello" in "keyval"
-  dbPromise.then(function(db) {
-    var tx = db.transaction('keyval');
-    var keyValStore = tx.objectStore('keyval');
-    return keyValStore.get('hello');
-  }).then(function(val) {
-    console.log('The value of "hello" is:', val);
-  });
+// read currencies
+dbPromise.then(function(db) {
+  var tx = db.transaction('currencies');
+  var peopleStore = tx.objectStore('currencies');
 
-  
+  return peopleStore.get('results');
+}).then(function(currencies) {
+
+  //let currencies = data.results; // Get the results
+  console.log(currencies);
+  const selectFrom = document.getElementById('inputFrom');
+  const selectTo = document.getElementById('inputTo');
+
+  for( key in currencies){
+    let optionFrom = createNode('option'),
+        optionTo = createNode('option');
+
+    optionFrom.innerHTML = `${key}`;
+    optionTo.innerHTML = `${key}`;
+
+    append(selectFrom, optionFrom);
+    append(selectTo, optionTo);
+  }
+
+});
