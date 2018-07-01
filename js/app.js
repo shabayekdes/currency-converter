@@ -54,7 +54,9 @@ fetch(url)
 }
 
 
+let con = true;
 
+if(con){
 (function () {
   fetch(currencies)
   .then(response => response.json())
@@ -69,12 +71,13 @@ for( key in currencies){
     return tx.complete;
   }).then(function() {
     console.log(':Item added currencies');
+	con = false;
   });
 }
   }).catch(error => console.log(error));
 
 })();
-
+}
 
 
 if ('serviceWorker' in navigator) {
